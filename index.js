@@ -16,7 +16,7 @@ app.use(bodyParser.json())
 
 // index
 app.get('/', function (req, res) {
-	res.send('歡迎光臨超級小秘書')
+	res.send('Welcome iCHEF Customer Success Manager')
 })
 
 // for facebook verification
@@ -71,7 +71,7 @@ app.post('/webhook/', function (req, res) {
 
 // recommended to inject access tokens as environmental variables, e.g.
 // const token = process.env.PAGE_ACCESS_TOKEN
-const token = "EAAYXz70dRisBACwwZCbewRourxEcvaSTZCK7Yf7EcHOpxnHe6f8C995tBZCoG5ZBRG22ICWgk89xwPhUMdYANtrF68zZC93w8APv1eChihOkZAyAe9qrZCKLlgrTdZCBqekEKLcZAOq62dMl2vGsBQZA2JVijSDT5ZBqaUFdtw5uGwX0wZDZD"
+const token = "EAACYQ6O4bCkBADO2qGfxZAVJDHZAQcc0Eob7LqrLuitmqJEBaGNFA2AXMmQV1kyaNYDNBl8WZADZB0vpyeYNSAss7sC6PM7504rhMtEn4Uj2ZAoo3opGhClpQop5ZCvwzGQV2aeL1WGZBQcLqXLXaZCGsT7VRUOebgmqLgkaF214ZAgZDZD"
 
 function sendTextMessage(sender, text) {
 	let messageData = { text:text }
