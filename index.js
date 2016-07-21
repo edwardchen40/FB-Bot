@@ -38,7 +38,7 @@ app.post('/webhook/', function (req, res) {
 			switch(text)	
 			{
 				case 'hello','Hello':
-					sendTextMessage(sender, "Hi! Winter 你好", token)
+					sendTextMessage(sender, "Hi! 你好", token)
 					setTimeout(function() {
 						sendTextMessage(sender, "我們偵測到你所在地為 臺北市", token)
 					}, 3000);
