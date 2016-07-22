@@ -33,12 +33,14 @@ app.post('/webhook/', function (req, res) {
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = req.body.entry[0].messaging[i]
 		let sender = event.sender.id
+		sendTextMessage(sender, "Hi, this is iCHEF Success Manager", token)
 		if (event.message && event.message.text) {
 			let text = event.message.text
+			text = text.toLowerCase();
 			switch(text)	
 			{
-				case 'hello','Hello':
-					sendTextMessage(sender, "Hi! 你好", token)
+				case 'help':
+					sendTextMessage(sender, "國語服務請按 1, 台語服務請按 2, 外語服務請按 3", token)
 					setTimeout(function() {
 						sendTextMessage(sender, "我們偵測到你所在地為 臺北市", token)
 					}, 3000);
@@ -49,12 +51,21 @@ app.post('/webhook/', function (req, res) {
 						sendGenericMessage(sender)
 					}, 8000);
 					break;
-				case 'help', 'Help':
-					sendTextMessage(sender, "你可以輸入hello,", token)
+				case 'hello':
+					sendTextMessage(sender, "Hi!" + sender + " 你好", token)
+					sendTextMessage(sender, "有什麼需要服務的地方嗎？", token)
 					break;
+				case 1,2,3;
+					sendTextMessage(sender, "請撥客服電話 0800-889-055", token)
+					break;
+				case '閃退';
+					sendTextMessage(sender, "請看以下解決方案", token)
+					setTimeout(function() {
+						sendGenericMessage(sender)
+					}, 8000);
 				default:
 					//sendGenericMessage(sender)
-					sendTextMessage(sender, "建議你可以輸入 hello", token)
+					sendTextMessage(sender, "建議你輸入欲解決問題的關鍵字，例如：help or 閃退", token)
 			}
 			//getUserProfile(sender)
 			//sendGenericMessage(sender)
@@ -92,6 +103,7 @@ function sendTextMessage(sender, text) {
 		}
 	})
 }
+
 function getUserProfile(sender) {
 	request({
 		url: 'https://graph.facebook.com/v2.6/' + sender,
@@ -105,6 +117,50 @@ function getUserProfile(sender) {
 		}
 	})
 }
+
+function sendCrashMessage(sender) {
+	let messageData = {
+		"attachment": {
+			"type": "template",
+			"payload": {
+				"template_type": "generic",
+				"elements":[{
+					"title":,
+					"image_url":,
+					"subtitle":,
+					"buttons":[
+						{
+							"type":,
+							"url":,
+							"title:":
+						},
+						{
+							"type":"postback",
+							"title":"",
+							"payload":"USER_DEFINED_PAYLOAD"
+						}
+					]
+			}]
+		}
+	}
+}
+	request({
+	         url: 'https://graph.facebook.com/v2.6/me/messages',
+	         qs: {access_token:token},
+	         method: 'POST',
+	         json: {
+	             recipient: {id:sender},
+	             message: messageData,
+	         }
+	     }, function(error, response, body) {
+	         if (error) {
+	             console.log('Error sending messages: ', error)
+	         } else if (response.body.error) {
+	             console.log('Error: ', response.body.error)
+	         }
+	     })
+}
+
 function sendGenericMessage(sender) {
     let messageData = {
         "attachment": {
