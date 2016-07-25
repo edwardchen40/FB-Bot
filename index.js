@@ -78,7 +78,7 @@ function sendTextMessage(sender, text) {
     let messageData = { text:text }
     
     request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
+        url: 'https://graph.facebook.com/v2.7/me/messages',
         qs: {access_token:token},
         method: 'POST',
         json: {
@@ -95,7 +95,7 @@ function sendTextMessage(sender, text) {
 }
 function getUserProfile(sender) {
     request({
-        url: 'https://graph.facebook.com/v2.6/' + sender,
+        url: 'https://graph.facebook.com/v2.7/' + sender,
         qs: {access_token:token,fields:"first_name,last_name,profile_pic,locale,timezone,gender"},
         method: 'GET',
     }, function(error, response, body) {
@@ -170,7 +170,7 @@ function sendGenericMessage(sender) {
         }
     }
     request({
-        url: 'https://graph.facebook.com/v2.6/me/messages',
+        url: 'https://graph.facebook.com/v2.7/me/messages',
         qs: {access_token:token},
         method: 'POST',
         json: {
