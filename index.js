@@ -41,17 +41,11 @@ app.post('/webhook/', function (req, res) {
             let text = event.message.text
             switch (text) {
                 case 'help':
-                    sendTextMessage(sender, '國語服務請按 1, 台語服務請按 2, 外語服務請按 3', token)
+                    sendTextMessage(sender, "請撥客服電話 0800-889-055", token)
                     break;
                 case 'hello':
                     sendTextMessage(sender, "Hi! 你好", token)
                     sendTextMessage(sender, "有什麼需要服務的地方嗎？", token)
-                    break;
-                case '1','2','3':
-                    sendTextMessage(sender, "請撥客服電話 0800-889-055", token)
-                    setTimeout(function() {
-                        sendGenericMessage(sender)
-                    }, 8000);
                     break;
                 case '閃退':
                     sendTextMessage(sender, "請看以下解決方案", token)
@@ -135,7 +129,7 @@ function sendGenericMessage(sender) {
                             "title":"Start Chatting",
                             "payload":"USER_DEFINED_PAYLOAD"
                         }
-                    ]
+                    ],
                 },
                 {
                     "title": "iCHEF 天氣站",
@@ -152,7 +146,7 @@ function sendGenericMessage(sender) {
                     }],
                 }, {
                     "title": "贊助廣告",
-                    "subtitle": "",
+                    "subtitle": "點我換現金",
                     "image_url": "https://c1.staticflickr.com/9/8666/28194034332_116e5a0434_o.png",
                     "buttons": [{
                         "type": "web_url",
