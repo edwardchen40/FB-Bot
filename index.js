@@ -47,7 +47,7 @@ app.post('/webhook/', function (req, res) {
                     sendTextMessage(sender, "Hi! 你好", token)
                     sendTextMessage(sender, "有什麼需要服務的地方嗎？", token)
                     break;
-                case 1,2,3:
+                case '1','2','3':
                     sendTextMessage(sender, "請撥客服電話 0800-889-055", token)
                     setTimeout(function() {
                         sendGenericMessage(sender)
@@ -56,7 +56,7 @@ app.post('/webhook/', function (req, res) {
                 case '閃退':
                     sendTextMessage(sender, "請看以下解決方案", token)
                     setTimeout(function() {
-                        sendCrashMessage(sender)
+                        sendGenericMessage(sender)
                     }, 8000);
                     break;
                 default:
@@ -114,14 +114,13 @@ function getUserProfile(sender) {
     })
 }
 
-function sendCrashMessage(sender) {
+function sendGenericMessage(sender) {
     let messageData = {
         "attachment": {
-            "type":"template",
+            "type": "template",
             "payload": {
-                "template_type":"generic",
-                "elements":[
-                {
+                "template_type": "generic",
+                "elements": [{
                     "title":"How-To: Fix Crashing iCHEF Apps on iPad",
                     "image_url":"http://54.64.214.255/images/_igp1443.jpg",
                     "subtitle":"We\'ve got the right answer for you.",
@@ -137,35 +136,8 @@ function sendCrashMessage(sender) {
                             "payload":"USER_DEFINED_PAYLOAD"
                         }
                     ]
-                }
-            ]
-        }
-    }
-}
-    request({
-             url: 'https://graph.facebook.com/v2.6/me/messages',
-             qs: {access_token:token},
-             method: 'POST',
-             json: {
-                 recipient: {id:sender},
-                 message: messageData,
-             }
-         }, function(error, response, body) {
-             if (error) {
-                 console.log('Error sending messages: ', error)
-             } else if (response.body.error) {
-                 console.log('Error: ', response.body.error)
-             }
-         })
-}
-
-function sendGenericMessage(sender) {
-    let messageData = {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": [{
+                },
+                {
                     "title": "iCHEF 天氣站",
                     "subtitle": "目前天氣為 晴, 推薦商品: 黑糖剉冰",
                     "image_url": "https://pic.gomaji.com/uploads/stores/056/52056/33080/DSC_0703.jpg",
