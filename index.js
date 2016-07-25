@@ -1,7 +1,5 @@
 /* eslint-disable */
 
-/* eslint-disable */
-
 'use strict'
 
 const express = require('express')
@@ -115,46 +113,59 @@ function sendGenericMessage(sender) {
             "payload": {
                 "template_type": "generic",
                 "elements": [{
-                    "title":"How-To: Fix Crashing iCHEF Apps on iPad",
-                    "image_url":"http://54.64.214.255/images/_igp1443.jpg",
-                    "subtitle":"We\'ve got the right answer for you.",
-                    "buttons":[
-                        {
-                            "type":"web_url",
-                            "url":"http://www.ichef.tw/serviceandsupport.html",
-                            "title:":"View Website"
-                        },
-                        {
-                            "type":"postback",
-                            "title":"Start Chatting",
-                            "payload":"USER_DEFINED_PAYLOAD"
-                        }
-                    ],
-                },
-                {
-                    "title": "iCHEF 天氣站",
-                    "subtitle": "目前天氣為 晴, 推薦商品: 黑糖剉冰",
-                    "image_url": "https://pic.gomaji.com/uploads/stores/056/52056/33080/DSC_0703.jpg",
+                    "title": "臺北市",
+                    "subtitle": "目前天氣為 晴, 溫度：30度",
+                    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Taipei_City_montage.PNG",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "http://www.ichef.tw/club/",
-                        "title": "推薦商家"
+                        "url": "https://tw.news.yahoo.com/weather/",
+                        "title": "天氣"
                     }, {
-                        "type":"postback",
-                        "title":"Start Chatting",
-                        "payload":"USER_DEFINED_PAYLOAD"
+                        "type": "web_url",
+                        "url": "http://tw.search.mall.yahoo.com/search/mall/product?p=臺北市",
+                        "title": "商城"
                     }],
                 }, {
-                    "title": "贊助廣告",
-                    "subtitle": "點我換現金",
+                    "title": "美食",
+                    "subtitle": "",
                     "image_url": "https://c1.staticflickr.com/9/8666/28194034332_116e5a0434_o.png",
                     "buttons": [{
                         "type": "web_url",
-                        "url": "https://www.google.com.tw/maps/place/好初早餐(一店)/@25.0277894,121.4699933,15z/data=!4m5!3m4!1s0x0:0xbea9006e45fad5c!8m2!3d25.0277894!4d121.4699933",
-                        "title": "好初早餐",
+                        "url": "https://tw.search.mall.yahoo.com/search/mall/product?p=台北&qt=product&cid=794017821&clv=2",
+                        "title": "美食",
                     }],
                 }, 
-             ]
+        {
+               "title": "服飾",
+                    "subtitle": "", 
+                    "image_url": "https://c1.staticflickr.com/9/8678/27682009324_05e41d13fe_o.png",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://tw.search.mall.yahoo.com/search/mall/product?p=台北服飾&qt=product&kw=台北服飾&cid=0&clv=0",
+                        "title": "服飾",
+                    }],     
+            },  
+        {
+               "title": "居家",
+                    "subtitle": "", 
+                    "image_url": "https://c1.staticflickr.com/9/8607/27682401003_bc09ea6eb6_o.png",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://tw.search.mall.yahoo.com/search/mall/product?p=%E5%8F%B0%E5%8C%97&qt=product&cid=794017823&clv=2",
+                        "title": "居家",
+                    }],     
+            },  
+        {
+               "title": "運動",
+                    "subtitle": "", 
+                    "image_url": "https://c1.staticflickr.com/9/8851/28016660710_38487c8cdc_o.png",
+                    "buttons": [{
+                        "type": "web_url",
+                        "url": "https://tw.search.mall.yahoo.com/search/mall/product?p=台北運動&qt=product&kw=台北運動&cid=0&clv=0",
+                        "title": "運動",
+                    }],     
+            }   
+        ]
             }
         }
     }
