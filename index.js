@@ -137,8 +137,8 @@ function sendGenericMessage(sender) {
                 }, 
         {
                "title": "贊助廣告",
-                    "subtitle": "點我送現金", 
-                    "image_url": "https://c1.staticflickr.com/9/8666/28194034332_116e5a0434_o.png",
+                    "subtitle": "點我送現金 - $500", 
+                    "image_url": "http://static.flickr.com/7152/6584078215_e87984413c.jpg",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://www.google.com.tw/maps/place/好初早餐(一店)/@25.0277894,121.4699933,15z/data=!4m5!3m4!1s0x0:0xbea9006e45fad5c!8m2!3d25.0277894!4d121.4699933",
@@ -146,23 +146,23 @@ function sendGenericMessage(sender) {
                     }],     
             },  
         {
-               "title": "居家",
+               "title": "Yahoo! 居家",
                     "subtitle": "", 
                     "image_url": "https://c1.staticflickr.com/9/8607/27682401003_bc09ea6eb6_o.png",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://tw.search.mall.yahoo.com/search/mall/product?p=%E5%8F%B0%E5%8C%97&qt=product&cid=794017823&clv=2",
-                        "title": "居家",
+                        "title": "Yahoo! 居家",
                     }],     
             },  
         {
-               "title": "運動",
+               "title": "Yahoo! 運動",
                     "subtitle": "", 
                     "image_url": "https://c1.staticflickr.com/9/8851/28016660710_38487c8cdc_o.png",
                     "buttons": [{
                         "type": "web_url",
                         "url": "https://tw.search.mall.yahoo.com/search/mall/product?p=台北運動&qt=product&kw=台北運動&cid=0&clv=0",
-                        "title": "運動",
+                        "title": "Yahoo! 運動",
                     }],     
             }   
         ]
