@@ -44,7 +44,7 @@ app.post('/webhook/', function (req, res) {
                     sendTextMessage(sender, '國語服務請按 1, 台語服務請按 2, 外語服務請按 3', token)
                     break;
                 case 'hello':
-                    sendTextMessage(sender, "Hi!" + sender + " 你好", token)
+                    sendTextMessage(sender, "Hi! 你好", token)
                     sendTextMessage(sender, "有什麼需要服務的地方嗎？", token)
                     break;
                 case 1,2,3:
@@ -58,6 +58,7 @@ app.post('/webhook/', function (req, res) {
                     setTimeout(function() {
                         sendCrashMessage(sender)
                     }, 8000);
+                    break;
                 default:
                     //sendGenericMessage(sender)
                     sendTextMessage(sender, "建議你輸入欲解決問題的關鍵字，例如：help or 閃退", token)
