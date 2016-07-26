@@ -35,7 +35,6 @@ app.post('/webhook/', function (req, res) {
     for (let i = 0; i < messaging_events.length; i++) {
         let event = req.body.entry[0].messaging[i]
         let sender = event.sender.id
-        let user = getUserProfile(sender, token)
         if (event.message && event.message.text) {
             let text = event.message.text
             switch (text) {
@@ -43,7 +42,6 @@ app.post('/webhook/', function (req, res) {
                     sendTextMessage(sender, "請撥客服電話 0800-889-055", token)
                     break;
                 case 'hello':
-                    sendTextMessage(sender, user, token)
                     sendTextMessage(sender, "Hi! 你好", token)
                     sendTextMessage(sender, "有什麼需要服務的地方嗎？", token)
                     break;
