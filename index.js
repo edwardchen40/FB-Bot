@@ -38,7 +38,7 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             let text = event.message.text
             switch (text) {
-                case 'call':
+                case 'Call':
                     sendTextMessage(sender, "請撥客服電話 0800-889-055", token)
                     break;
                 case 'Hi':
@@ -46,14 +46,14 @@ app.post('/webhook/', function (req, res) {
                     sendTextMessage(sender, "有什麼需要服務的地方嗎？", token)
                     break;
                 case '閃退':
-                    sendTextMessage(sender, "請看以下解決方案", token)
+                    sendTextMessage(sender, "請參考以下 iCHEF 給您的解決方案", token)
                     setTimeout(function() {
                         sendGenericMessage(sender)
                     }, 4000);
                     break;
                 default:
                     //sendGenericMessage(sender)
-                    sendTextMessage(sender, "建議你輸入欲解決問題的關鍵字，例如：call or 閃退", token)
+                    sendTextMessage(sender, "建議你輸入欲解決問題的關鍵字，例如：Call or 閃退", token)
             }
             //getUserProfile(sender)
             //sendGenericMessage(sender)
