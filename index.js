@@ -38,29 +38,29 @@ app.post('/webhook/', function (req, res) {
         if (event.message && event.message.text) {
             let text = event.message.text
             switch (text) {
-                case 'help':
+                case 'call':
                     sendTextMessage(sender, "請撥客服電話 0800-889-055", token)
                     break;
-                case 'hello':
-                    sendTextMessage(sender, "Hi! 你好", token)
+                case 'Hi':
+                    sendTextMessage(sender, "Hello! 你好", token)
                     sendTextMessage(sender, "有什麼需要服務的地方嗎？", token)
                     break;
                 case '閃退':
                     sendTextMessage(sender, "請看以下解決方案", token)
                     setTimeout(function() {
                         sendGenericMessage(sender)
-                    }, 8000);
+                    }, 4000);
                     break;
                 default:
                     //sendGenericMessage(sender)
-                    sendTextMessage(sender, "建議你輸入欲解決問題的關鍵字，例如：help or 閃退", token)
+                    sendTextMessage(sender, "建議你輸入欲解決問題的關鍵字，例如：call or 閃退", token)
             }
             //getUserProfile(sender)
             //sendGenericMessage(sender)
         }
         if (event.postback) {
             let text = JSON.stringify(event.postback)
-            sendTextMessage(sender, "建議你可以輸入 hello", token)
+            sendTextMessage(sender, '建議你可以輸入 call', token)
             continue
         }
     }
